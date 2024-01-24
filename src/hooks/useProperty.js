@@ -5,8 +5,14 @@ const useProperty = () => {
   const { isPending, error, data, refetch } = useQuery({
     queryKey: ["propertyData"],
     queryFn: async () => {
-      const data = await axios.get("");
-      return data.data.data;
+      try {
+        const response = await axios.get(
+          "https://server-task-1.vercel.app/properties"
+        );
+        return response.data.data;
+      } catch (error) {
+        throw new Error("Error fetching property data");
+      }
     },
   });
 

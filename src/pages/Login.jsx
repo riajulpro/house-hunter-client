@@ -24,7 +24,7 @@ const Login = () => {
     console.log(loginBody);
 
     axios
-      .post("http://localhost:5000/users/login", loginBody)
+      .post("https://server-task-1.vercel.app/users/login", loginBody)
       .then((res) => {
         navigate(`/dashboard?role=${res.data.role}&mail=${email}`);
       })
@@ -57,7 +57,7 @@ const Login = () => {
     console.log(userBody);
 
     axios
-      .post("http://localhost:5000/users", userBody)
+      .post("https://server-task-1.vercel.app/users", userBody)
       .then((response) => {
         setIsRegister(true);
         setLoginPage(true);

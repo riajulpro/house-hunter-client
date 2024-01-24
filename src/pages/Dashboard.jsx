@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import RentalForm from "../components/RentalForm";
+import OwnerDashboard from "../components/OwnerDashboard";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -9,17 +9,7 @@ const Dashboard = () => {
   const mail = queryParams.get("mail");
 
   if (role === "owner") {
-    return (
-      <div>
-        <div className="md:w-10/12 lg:w-9/12 mx-auto">
-          <h1 className="font-bold text-3xl">Owner Dashboard</h1>
-          <p className="text-slate-500">{mail}</p>
-          <div>
-            <RentalForm />
-          </div>
-        </div>
-      </div>
-    );
+    return <OwnerDashboard mail={mail} />;
   } else if (role === "renter") {
     return <div>Renter Dashboard</div>;
   }
